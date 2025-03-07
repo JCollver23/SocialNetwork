@@ -24,9 +24,22 @@ const localReactionSchema = new Schema<IReaction>(
         reactionId: {
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId()
-        }
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280
+        },
+        username: {
+            type: String,
+            required: true
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp, "mm/dd/yyyy")
     }
-
+    }
 );
 
 const thoughtSchema = new Schema<IThought>(
@@ -37,11 +50,11 @@ const thoughtSchema = new Schema<IThought>(
             minlength: 1,
             maxlength: 280
         },
-        // createdAt: {
-        //     type: Date,
-        //     default: () => new Date(),
-        //     get: (timestamp) => dateFormat(timestamp),
-        // },
+        createdAt: {
+            type: Date,
+            default: () => new Date(),
+            get: (timestamp) => dateFormat(timestamp),
+        },
         username: {
             type: String,
             required: true

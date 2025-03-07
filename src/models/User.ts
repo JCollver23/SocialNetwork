@@ -54,25 +54,5 @@ userSchema.virtual('friendCount').get(function () {
 const User = model('User', userSchema);
 
 
-// userSchema
-//   .virtual('fullName')
-//   // Getter
-//   .get(function () {
-//     return `${this.first} ${this.last}`;
-//   })
-//   // Setter to set the first and last name
-//   .set(function (v) {
-//     const first = v.split(' ')[0];
-//     const last = v.split(' ')[1];
-//     this.set({ first, last });
-//   });
-
-// // Initialize our User model
-// const User = model('user', userSchema);
-
-// User.create({
-//     username: 'test',
-//     email: 'test@test.com'
-// })
 
 export default User;
